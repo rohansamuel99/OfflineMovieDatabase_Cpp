@@ -9,18 +9,96 @@
 #include <fstream>
 #include <iostream>
 
-struct Movie
+
+namespace movie
 {
-public:
-    //ntf* unsigned is used to make the variable only represent natural numbers
-    std:: string filmTitle;
-    unsigned int releaseYear;
-    std:: string ageRating;
-    std:: string genre;
-    unsigned int length;
-    unsigned int viewerRating;
-    // string csv = ",";
-};
+    class Movie
+    {
+
+    public:
+        //nts* unsigned is used to make the variable only represent natural numbers
+        std::string filmTitle;
+        unsigned int releaseYear;
+        std::string ageRating;
+        std::string genre;
+        unsigned int length;
+        unsigned int viewerRating;
+
+
+    public:
+        //setter methods for title, release year, age rating, genre, length and viewer rating
+        //nts*-inline function is a function that is expanded in line when it is called, they are faster cos no push and pop on and off the stack
+        inline void setFilmTitle(std::string &newFilmTitle)
+        {
+            this->filmTitle = newFilmTitle;
+        }
+
+        inline void setReleaseYear(int &newReleaseYear)
+        {
+            this->releaseYear = newReleaseYear;
+        }
+
+        inline void setAgeRating(std::string &newAgeRating)
+        {
+            this->ageRating = newAgeRating;
+        }
+
+        inline void setGenre(std::string &newGenre)
+        {
+            this->genre = newGenre;
+        }
+
+        inline void setLength(int &newLength)
+        {
+            this->length = newLength;
+        }
+
+        inline void setViewerRating(int &newViewerRating)
+        {
+            this->viewerRating = newViewerRating;
+        }
+
+        // getter methods for title, release year, age rating, genre, length and viewer rating
+        inline std::string getFilmTitle()
+        {
+            return this->filmTitle;
+        }
+
+        inline const int getReleaseYear()
+        {
+            return this->releaseYear;
+        }
+
+        inline std::string getAgeRating()
+        {
+            return this->ageRating;
+        }
+
+        inline std::string getGenre()
+        {
+            return this->genre;
+        }
+
+        inline const int getLength()
+        {
+            return this->length;
+        }
+
+        inline const int getViewerRating()
+        {
+            return this->viewerRating;
+        }
+
+        //constructor for Movie class
+
+        Movie(std::string newFilmTitle, int newReleaseYear, std::string newAgeRating, std::string newGenre,
+              int newLength, std::string newViewerRating);
+
+        //nts*-the equivalent of a toString from Java in Cpp is the write() method
+        //try compliling and fix all problems
+    };
+
+}
 
 
 
