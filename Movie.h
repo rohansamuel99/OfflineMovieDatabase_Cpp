@@ -93,9 +93,6 @@ namespace movie
         Movie(std::string newFilmTitle, int newReleaseYear, std::string newAgeRating, std::string newGenre,
               int newLength, std::string newViewerRating);
 
-        //new constructor that takes the values of one movie object
-        Movie(const Movie &newMovie);
-
         //nts*-the equivalent of a toString from Java in Cpp is the write() method
         std:: ostream write(std:: ostream &stream) const;
         //operator in ostream is like the override for Java's toString method. It is an overloading operator
