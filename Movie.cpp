@@ -3,9 +3,14 @@
 **/
 
 #include "Movie.h"
+/*
+ * Movie.h and Movie.cpp - A Movie object describes the information stored about a particular film,
+ * such that there will be a separate Movie object for each film held in the
+ * database. The class should have a suitable collection of constructors, accessor methods
+ * etc. and the stream I/O and relational operators should be implemented.
+ */
 
-
-// creat a movie object for each film
+// create a movie object for each film
 /* movie object should contain :
   1. Title
   2. Year of Release
@@ -16,29 +21,22 @@
 */
 
 // make an array of fixed size 6 and then once the file is read in assign array[0] to title and so on
-
-namespace movie {
+using namespace std;
     // initialising Movie constructor method from .h file
-    Movie::Movie(std::string newFilmTitle, int newReleaseYear, std::string newAgeRating, std::string newGenre,
-                 int newLength,
-                 int newViewerRating)
+    movie::Movie::Movie(string newFilmTitle, int newReleaseYear, string newAgeRating, string newGenre, int newLength,
+                        int newViewerRating)
     {
-        this->filmTitle     = newFilmTitle;
-        this->releaseYear   = newReleaseYear;
-        this->ageRating     = newAgeRating;
-        this->genre         = newGenre;
-        this->length        = newLength;
-        this->viewerRating  = newViewerRating;
+        this->filmTitle = newFilmTitle;
+        this->releaseYear = newReleaseYear;
+        this->ageRating = newAgeRating;
+        this->genre = newGenre;
+        this->length = newLength;
+        this->viewerRating = newViewerRating;
     }
 
-    std:: ostream &Movie::write(std::ostream &stream) const
-    {
-        stream  << "Film Title: " << this->filmTitle << " | "
-                << "Year of Release: " << this->releaseYear << " | "
-                << "Age Rating: " << this->ageRating << " | "
-                << "Genre: " << this->genre << " | "
-                << "Length of Film: " << this->length << " | "
-                << "Viewer Rating: " << this->viewerRating << " | \n";
-        return stream;
-    }
-}
+/*
+int main()
+{
+    movie::Movie newMovie = movie::Movie("Hello", 1990, "UG", "Adventure", 120, 0);
+    std::cout << newMovie << endl;
+}*/

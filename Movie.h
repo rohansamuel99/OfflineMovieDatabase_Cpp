@@ -7,9 +7,11 @@
 
 #include <string>
 #include <fstream>
+#include <sstream>
 #include <iostream>
+#include <ostream>
 
-
+using namespace std;
 namespace movie
 {
     class Movie
@@ -17,18 +19,18 @@ namespace movie
 
     public:
         //nts* unsigned is used to make the variable only represent natural numbers
-        std::string filmTitle;
-        unsigned int releaseYear;
-        std::string ageRating;
-        std::string genre;
-        unsigned int length;
-        unsigned int viewerRating;
+        string filmTitle;
+        int releaseYear;
+        string ageRating;
+        string genre;
+        int length;
+        int viewerRating;
 
 
     public:
         //setter methods for title, release year, age rating, genre, length and viewer rating
         //nts*-inline function is a function that is expanded in line when it is called, they are faster cos no push and pop on and off the stack
-        inline void setFilmTitle(std::string &newFilmTitle)
+        inline void setFilmTitle(string &newFilmTitle)
         {
             this->filmTitle = newFilmTitle;
         }
@@ -38,12 +40,12 @@ namespace movie
             this->releaseYear = newReleaseYear;
         }
 
-        inline void setAgeRating(std::string &newAgeRating)
+        inline void setAgeRating(string &newAgeRating)
         {
             this->ageRating = newAgeRating;
         }
 
-        inline void setGenre(std::string &newGenre)
+        inline void setGenre(string &newGenre)
         {
             this->genre = newGenre;
         }
@@ -59,7 +61,7 @@ namespace movie
         }
 
         // getter methods for title, release year, age rating, genre, length and viewer rating
-        inline std::string getFilmTitle()
+        inline string getFilmTitle()
         {
             return this->filmTitle;
         }
@@ -69,12 +71,12 @@ namespace movie
             return this->releaseYear;
         }
 
-        inline std::string getAgeRating()
+        inline string getAgeRating()
         {
             return this->ageRating;
         }
 
-        inline std::string getGenre()
+        inline string getGenre()
         {
             return this->genre;
         }
@@ -90,20 +92,25 @@ namespace movie
         }
 
         //constructor for Movie class
-        Movie(std::string newFilmTitle, int newReleaseYear, std::string newAgeRating, std::string newGenre,
-              int newLength, std::string newViewerRating);
+        Movie(string newFilmTitle, int newReleaseYear, string newAgeRating, string newGenre,
+              int newLength, int newViewerRating);
 
         //nts*-the equivalent of a toString from Java in Cpp is the write() method
-        std:: ostream write(std:: ostream &stream) const;
+
         //operator in ostream is like the override for Java's toString method. It is an overloading operator
-        inline std:: ostream& operator<<(std:: ostream &stream, const Movie& movie)
+        friend inline std::ostream& operator<<(std::ostream &stream, movie::Movie &movie1)
         {
-            return movie.write(stream);
+            stream  << "Film Title: " << movie1.filmTitle << " | "
+                    << "Year of Release: " << movie1.releaseYear << " | "
+                    << "Age Rating: " << movie1.ageRating << " | "
+                    << "Genre: " << movie1.genre << " | "
+                    << "Length of Film: " << movie1.length << " | "
+                    << "Viewer Rating: " << movie1.viewerRating << " | " << endl;
+            return stream;
         }
         //overloading the input operator
-        //std:: istream& operator<< (std:: istream& stream, Movie& movie);
+        //istream& operator<< (istream& stream, Movie movie1);
     };
-
 }
 
 
