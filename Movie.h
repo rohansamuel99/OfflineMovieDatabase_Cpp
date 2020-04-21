@@ -112,7 +112,7 @@ namespace movie
         //istream& operator<< (istream& stream, Movie movie1);
     };
 }
-
+void testMovie();
 
 
 #endif //OFFLINEMOVIEDATABASE_CPP_MOVIE_H

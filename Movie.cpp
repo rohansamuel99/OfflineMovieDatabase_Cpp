@@ -34,9 +34,8 @@ using namespace std;
         this->viewerRating = newViewerRating;
     }
 
-/*
-int main()
+void testMovie()
 {
     movie::Movie newMovie = movie::Movie("Hello", 1990, "UG", "Adventure", 120, 0);
     std::cout << newMovie << endl;
-}*/
+}
