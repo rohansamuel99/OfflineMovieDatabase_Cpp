@@ -1,6 +1,7 @@
-//
-// Created by rohan on 25/03/2020.
-//
+/**
+ * Created by Rohan on 25/03/2020.
+ * Last Edited on 25/4/2020. Added comments.
+**/
 
 #include <iostream>
 #include <fstream>
@@ -12,11 +13,14 @@ using namespace std;
 
 int main()
 {
+    // creates a movie database with all the movies in films.txt
     movie::MovieDatabase movieDatabase = movie::MovieDatabase("films.txt");
 
+    // test harnesses for MovieDatabase and Movie
     //testMovieDatabase();
     //testMovie();
 
+    // Chronologically Sort all the movies
     movieDatabase.sortChronologyAsc();
     cout << "Chronologically Ordered" << endl << movieDatabase << endl;
 

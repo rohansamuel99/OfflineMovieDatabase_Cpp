@@ -1,6 +1,7 @@
-//
-// Created by rohan on 25/03/2020.
-//
+/**
+ * Created by Rohan on 25/03/2020.
+ * Last Edited on 25/4/2020. Added comments.
+**/
 
 #ifndef OFFLINEMOVIEDATABASE_CPP_MOVIE_H
 #define OFFLINEMOVIEDATABASE_CPP_MOVIE_H
@@ -98,7 +99,8 @@ namespace movie
         //nts*-the equivalent of a toString from Java in Cpp is the write() method
 
         //operator in ostream is like the override for Java's toString method. It is an overloading operator
-        friend inline std::ostream& operator<<(std::ostream &stream, movie::Movie &movie1)
+        //change so that it prints like the .txt file
+        friend inline ostream& operator<<(ostream &stream, movie::Movie &movie1)
         {
             stream  << "Film Title: " << movie1.filmTitle << " | "
                     << "Year of Release: " << movie1.releaseYear << " | "
@@ -108,10 +110,12 @@ namespace movie
                     << "Viewer Rating: " << movie1.viewerRating << " | " << endl;
             return stream;
         }
+
         //overloading the input operator
-        //istream& operator<< (istream& stream, Movie movie1);
+        friend inline istream& operator>> (istream& stream, Movie movie1);
     };
 }
+
 void testMovie();
 
 
